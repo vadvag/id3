@@ -2,6 +2,12 @@ import os
 
 
 class MP3Format:
+    """
+    # Class-description of mp3 file
+    * file name
+    * file path
+    * ID3-tags
+    """
     def __init__(self, name, path):
         self.name = name + '.mp3'
         self.path = path
@@ -21,7 +27,7 @@ class MP3Format:
 
 mp3_track = MP3Format('Китай', 'Romantic collection')
 
-# Путь к текеущему каталогу
+# Path to current directory
 # https://docs.python.org/3/library/os.html#module-os
 print(mp3_track.get_current_folder())
 print(mp3_track.show_full_file_path())
