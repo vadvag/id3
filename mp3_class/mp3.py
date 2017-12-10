@@ -1,35 +1,18 @@
 import os
 
-
 class MP3Format:
+    """ Class-description of mp3 file
+        - file name
+        - file path
+        - ID3-tags
     """
-    # Class-description of mp3 file
-    * file name
-    * file path
-    * ID3-tags
-    """
-    def __init__(self, name, path):
-        self.name = name + '.mp3'
+    
+    def __init__(self, path):
+        # self.name = name + '.mp3'
         self.path = path
 
     version = ['ID3v1', 'ID3v2']
 
-    def get_current_folder(self):
-        return os.getcwd()
-
-    def read_tags(self):
-        with open(self.show_full_file_path(), 'rb') as this_track:
-            this_track.read()
-
-    def show_full_file_path(self):
-        return '{}/{}'.format(os.getcwd(), self.name)
-
-
-mp3_track = MP3Format('Китай', 'Romantic collection')
 
 # Path to current directory
 # https://docs.python.org/3/library/os.html#module-os
-print(mp3_track.get_current_folder())
-print(mp3_track.show_full_file_path())
-print(mp3_track.read_tags())
-
