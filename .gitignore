@@ -101,3 +101,7 @@ ENV/
 .mypy_cache/
 mp3_class/Китай.mp3
 mp3_class/.DS_Store
+.DS_Store
+.vscode/settings.json
+mp3_class/sample.mp3
+mp3_class/test_this_class.py
