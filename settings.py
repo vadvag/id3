@@ -9,6 +9,7 @@ id3_modules = (
     'mp3_class'
     )
 
+
 def set_path_vars():
     for item in id3_modules:
         sys.path.append(os.path.join(sys.path[0], item))

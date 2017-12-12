@@ -15,15 +15,7 @@ class MP3Format:
     def __init__(self, path):
         self.full_path = path
         self.meta_data = {}
-
-        # define variables for File Name and Path to directory that contains this file
-        if sys.platform == 'darwin' or sys.platform == 'linux':
-            self.name = self.full_path.rsplit('/')[-1]
-            self.path = self.full_path.rsplit('/')[0]
-        else:
-            # o_O do U use Windows? :-)
-            self.name = self.full_path.rsplit('\\')[-1]
-            self.path = self.full_path.rsplit('\\')[0]
+        self.name = self.full_path.rsplit(os.sep)[-1]  # mp3 File Name
 
         self.parse_id3_tags()
 

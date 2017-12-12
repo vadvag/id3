@@ -10,7 +10,7 @@ import search_in_directory as sid
 try:
     # предполагается что на данном этапе наше приложение получает один аргумент коммандной строки
     # протестировано: python3.6 main.py /Users/MacUser/Music
-    # В результате выдает список всех mp3 файлов в заданной директории с версиями и тегов
+    # В результате выдает список всех mp3 файлов в заданной директории с версиями и тегами
     
     if os.path.exists(os.path.dirname(sys.argv[1])):
         my_mp3 = sid.find_all_mp3_in_current_dir(sys.argv[1])
