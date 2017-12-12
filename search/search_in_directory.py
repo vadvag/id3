@@ -1,23 +1,20 @@
 #!/usr/bin/env python3.6
-# -*- coding: utf-8 -*-
+
 import os
-import sys
 import fnmatch
-import mp3
+import mp3_class.mp3 as mp3
 
 
 def find_all_mp3_in_current_dir(path):
+
+    if not os.path.isdir(path):
+        raise FileNotFoundError
+
     mp3_list = []
     
     for root, dirs, files in os.walk(path):
-        if len(files) > 0:
-            for file in files:
-                if fnmatch.fnmatch(file, '*.mp3'):
-                    # Creat the list of objects MP3Format class
-                    mp3_list.append(mp3.MP3Format('{}{}{}'.format(root, os.sep, file)))
+        for file in files:
+            if fnmatch.fnmatch(file, '*.mp3'):
+                mp3_list.append(mp3.MP3Format(os.path.join(root, file)))
     
     return mp3_list
-
-
-# Функция выводящая список Директорий/Папок из объекта mp3.MP3Format
-# def get_folders_from_list():
