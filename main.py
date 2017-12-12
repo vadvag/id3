@@ -4,7 +4,7 @@ import sys
 import os
 
 # Этот кусок кода нам нужен пока мы не прошли тему Модули, потом будем прописывать свои модули по-человечески
-from settings import set_path_vars
+import settings
 import search_in_directory as sid
 
 try:
