@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
-
 import os
 import sys
 import struct
+
 
 class MP3Format:
     """ Class-description of mp3 file
@@ -31,9 +31,11 @@ class MP3Format:
         with open(self.full_path, 'rb') as fd:
             # Check if our file version is ID3v2
             # 3 bytes: v2 header is "ID3"
-            __ID3v = str(fd.read(3))
-            if  __ID3v == "ID3":
-                
+            __ID3v = fd.read(3)
+            __ID3v = __ID3v.decode()  # перекодируем из байтов в строку
+            
+            # Возникали проблемы со считыванием в строку
+            if  __ID3v == 'ID3':
                 # 2 bytes: the minor and revision versions.
                 __m_and_r_versions = struct.unpack("h", fd.read(2))
     
@@ -45,6 +47,7 @@ class MP3Format:
                                                                 __m_and_r_versions[1])
 
                 # 1 byte (first 4 bits): flags
+                # здесь возможно пригодится bytearray 
                 self.meta_data["flags"] = '{0:08b}'.format(ord(fd.read(1)))
                 """
                 http://id3.org/id3v2.4.0-structure
