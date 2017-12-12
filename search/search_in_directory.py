@@ -17,3 +17,7 @@ def find_all_mp3_in_current_dir(path):
                     mp3_list.append(mp3.MP3Format('{}{}{}'.format(root, os.sep, file)))
     
     return mp3_list
+
+
+# Функция выводящая список Директорий/Папок из объекта mp3.MP3Format
+# def get_folders_from_list():

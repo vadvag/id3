@@ -16,7 +16,7 @@ class MP3Format:
         self.full_path = path
         self.meta_data = {}
         self.name = self.full_path.rsplit(os.sep)[-1]  # mp3 File Name
-
+        self.current_folder_name = self.full_path.rsplit(os.sep)[-2]
         self.parse_id3_tags()
 
     def parse_id3_tags(self):
